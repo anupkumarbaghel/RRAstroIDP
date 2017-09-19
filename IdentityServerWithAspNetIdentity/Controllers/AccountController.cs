@@ -20,6 +20,7 @@ namespace IdentityServerWithAspNetIdentity.Controllers
 {
     [Authorize]
     [SecurityHeaders]
+   
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
