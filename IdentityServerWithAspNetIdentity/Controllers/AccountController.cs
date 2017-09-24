@@ -15,6 +15,7 @@ using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Http.Authentication;
 using IdentityServer4.Quickstart.UI;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace IdentityServerWithAspNetIdentity.Controllers
 {
@@ -233,6 +234,16 @@ namespace IdentityServerWithAspNetIdentity.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                user.Claims.Add(new IdentityUserClaim<string>
+                {
+                    ClaimType = "userName",
+                    ClaimValue = model.Email
+                });
+                user.Claims.Add(new IdentityUserClaim<string>
+                {
+                    ClaimType = "email",
+                    ClaimValue = model.Email
+                });
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -24,7 +24,7 @@ namespace IdentityServerWithAspNetIdentity
         {
             return new List<ApiResource>
             {
-                new ApiResource("api1", "My API")
+                new ApiResource("api1", "My API",new []{"email","name"})
             };
         }
 
