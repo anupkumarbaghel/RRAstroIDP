@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace IdentityServerWithAspNetIdentity.Models.AccountViewModels
 {
@@ -19,5 +20,11 @@ namespace IdentityServerWithAspNetIdentity.Models.AccountViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public string FullName { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public DateTime? TimeOfBirth { get; set; }
+        public string BirthCity { get; set; }
+        public string BirthCountry { get; set; }
     }
 }

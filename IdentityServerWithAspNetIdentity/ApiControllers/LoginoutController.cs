@@ -60,7 +60,13 @@ namespace IdentityServerWithAspNetIdentity.ApiControllers
            
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email
+                    ,FullName=model.FullName
+                    ,DateOfBirth=model.DateOfBirth
+                    ,TimeOfBirth=model.TimeOfBirth
+                    ,BirthCity=model.BirthCity
+                    ,BirthCountry=model.BirthCountry
+                };
     
              
                 user.Claims.Add(new IdentityUserClaim<string>
